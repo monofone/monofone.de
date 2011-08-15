@@ -1,0 +1,12 @@
+{% extends layout %}
+{% block content %}
+<h2>Contact</h2>
+<form action="{{ app.url_generator.generate('contact_send') }}" method="post">
+<label for="email">E-Mail</label><input type="text" name="email" id="email" /><br>
+<label for="message">Nachricht</label><textarea row="" col="" name="message" id="message"></textarea><br>
+<button class="submit" type="submit">senden</button>
+</form>
+{% endblock %}
+{% block left %}
+<img src="/~srohweder/monofone4.0/web/img/contact.jpg" alt="knowledge is power" />
+{% endblock %}

@@ -1,0 +1,12 @@
+[submodule "app/vendor/Silex"]
+	path = app/vendor/Silex
+	url = git://github.com/fabpot/Silex.git
+[submodule "app/vendor/Twig"]
+	path = app/vendor/Twig
+	url = git://github.com/fabpot/Twig.git
+[submodule "app/vendor/symfony"]
+	path = app/vendor/symfony
+	url = git://github.com/symfony/symfony.git
+[submodule "app/vendor/swiftmailer"]
+	path = app/vendor/swiftmailer
+	url = git://github.com/swiftmailer/swiftmailer.git
