@@ -100,6 +100,8 @@ ul#nav li a:hover
 #content_box ul{
   margin-left: 30px;
   padding-bottom: 30px;
+  list-style-type: square;
+  list-style-position: outside;
 }
 h2{
   padding: 0px 0 39px 0;
@@ -122,9 +124,10 @@ dl{
 }
 dd{
   float:left;
-  width: 160px;
   background-color: black;
   font-weight: bold;
+  padding: 2px 2px;
+  font-family: monospace;
 }
 dt{
   padding-left: 180px;
