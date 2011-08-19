@@ -21,15 +21,6 @@ body{
   color: white;
 }
 
-#wrap{
-  min-height: 100%;
-}
-
-#container {
-  overflow:auto;
-  padding-bottom: 22px;
-} 
-
   
 h1, h2, h3, h4{
   font-family: Georgia, serif;
@@ -84,6 +75,10 @@ ul#nav li a:hover
   color: #fffc15;
   background-color: #fe15ff;
 }
+#container{
+  padding-top: 80px;
+  padding-bottom: 22px;
+}
 
 #left_box{
   float:left;
@@ -96,7 +91,6 @@ ul#nav li a:hover
  -webkit-transform: rotate(5deg);
  -moz-box-shadow: 8px 8px 8px #666;
  -moz-transform: rotate(5deg);
- margin-top: 139px;
  margin-right: 30px;
 }
 #content_box{
@@ -108,12 +102,12 @@ ul#nav li a:hover
   padding-bottom: 30px;
 }
 h2{
-  padding: 139px 0 39px 0;
+  padding: 0px 0 39px 0;
   font-size: 30px;
 }
 h3, h4{
   font-size: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 
 p{
@@ -123,14 +117,26 @@ p{
   line-height: 1.2em;
   padding-bottom: 10px;
 }
-
+dl{
+  width: 520px;
+}
+dd{
+  float:left;
+  width: 160px;
+  background-color: black;
+  font-weight: bold;
+}
+dt{
+  padding-left: 180px;
+  padding-bottom: 20px;
+}
 #stoerer{
   position: absolute;
   top: 2px;
   left: 600px;
   width:120px;
   height: 120px;
-  background: url(/~srohweder/monofone4.0/web/img/inside_star.png) 0 0 transparent;
+  background: url(/img/inside_star.png) 0 0 transparent;
 }
 
 footer{
