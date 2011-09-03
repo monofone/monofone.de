@@ -1,7 +1,8 @@
 <html>
   <head>
     <title>monofone</title>
-    <link rel="stylesheet" type="text/css" href="/~srohweder/monofone4.0/web/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     <!--
     Deutsch:
     Vielen Dank für den Blick in den Quellcode, die Seite läuft auf einer 
@@ -23,9 +24,9 @@
         <div id="stoerer"></div>
         <menu>
           <ul id="nav">
-            <li id="vita"><a href="{{ app.url_generator.generate('page', {'name': 'vita' }) }}">vita</a></li>
-            <li id="knowledge"><a href="{{ app.url_generator.generate('page', {'name': 'knowledge' }) }}">knowledge</a></li>
-            <li id="spare"><a href="{{ app.url_generator.generate('page', {'name': 'spare-time' }) }}">spare time</a></li>
+            <li id="vita"><a href="{{ path('page', {'name': 'vita' }) }}">vita</a></li>
+            <li id="knowledge"><a href="{{ path('page', {'name': 'knowledge' }) }}">knowledge</a></li>
+            <li id="spare"><a href="{{ path('page', {'name': 'spare-time' }) }}">spare time</a></li>
           </ul>
         </menu>
       </header> 
@@ -47,7 +48,7 @@
           <p>&copy 2011 Sören Rohweder</p>
         </div>
         <div id="contact">
-          <a href="{{ app.url_generator.generate('contact') }}">contact</a>
+          <a href="{{ path('contact') }}">contact</a>
         </div>
       </div>
     </footer>

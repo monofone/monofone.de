@@ -1,12 +1,19 @@
 {% extends layout %}
+
 {% block content %}
 <h2>Contact</h2>
-<form action="{{ app.url_generator.generate('contact_send') }}" method="post">
-<label for="email">E-Mail</label><input type="text" name="email" id="email" /><br>
-<label for="message">Nachricht</label><textarea row="" col="" name="message" id="message"></textarea><br>
-<button class="submit" type="submit">senden</button>
+{% if sent %}
+<p>Vielen Dank</p>
+{% else %}
+<form action="{{ path('contact') }}" method="post">
+  {{ form_row(form.email) }}
+  {{ form_row(form.message) }}
+  <button class="submit" type="submit">senden</button>
+  {{ form_rest(form) }}
 </form>
+{% endif %}
 {% endblock %}
+
 {% block left %}
-<img src="/~srohweder/monofone4.0/web/img/contact.jpg" alt="knowledge is power" />
+<img src="/img/contact.jpg" alt="contact" />
 {% endblock %}
