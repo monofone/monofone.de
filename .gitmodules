@@ -10,3 +10,12 @@
 [submodule "app/vendor/swiftmailer"]
 	path = app/vendor/swiftmailer
 	url = git://github.com/swiftmailer/swiftmailer.git
+[submodule "app/vendor/doctrine-common"]
+	path = app/vendor/doctrine-common
+	url = git://github.com/doctrine/common.git
+[submodule "app/vendor/doctrine-dbal"]
+	path = app/vendor/doctrine-dbal
+	url = git://github.com/doctrine/dbal.git
+[submodule "app/vendor/monolog"]
+	path = app/vendor/monolog
+	url = git://github.com/Seldaek/monolog.git

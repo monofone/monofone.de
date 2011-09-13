@@ -1,0 +1,15 @@
+{% extends layout %}
+
+{% block content %}
+<h2>ServiceTest</h2>
+{% if sent %}
+<p>sent <a href="{{ path('servicetest') }}">nochmal</a></p>
+{% else %}
+<form action="{{ path('volumereader') }}" method="post" {{ form_enctype(form) }}>
+  {{ form_row(form.image) }}
+  {{ form_row(form.kdnumber) }}
+  <button class="submit" type="submit">senden</button>
+  {{ form_rest(form) }}
+</form>
+{% endif %}
+{% endblock %}
