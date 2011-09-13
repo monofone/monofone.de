@@ -3,6 +3,7 @@
 include(__DIR__.'/vendor/Silex/autoload.php');
 
 use Silex\Extension\TwigExtension;
+use Symfony\Component\HttpFoundation\Response;
 
 $app = new Silex\Application();
 
@@ -20,7 +21,7 @@ $app->register(new TwigExtension(), array(
     'twig.class_path' => __DIR__.'/vendor/Twig/lib',
 ));
 
- $app->register(new Silex\Extension\FormExtension(), array(
+$app->register(new Silex\Extension\FormExtension(), array(
     'form.class_path' => __DIR__ . '/vendor/symfony/src'
 ));
 
@@ -41,8 +42,14 @@ $app->before(function() use ($app) {
     $app['twig']->addGlobal('layout', $app['twig']->loadTemplate('layout.twig'));
 });
  
-$app->error(function() use($app) {
-  return $app['twig']->render('error.twig');
+$app->error(function($error) use($app) {
+    if(preg_match("/found|find/",$error->getMessage())){
+	$status = '404';
+    }else{
+	$status = '500';
+    }
+    
+    return new Response($app['twig']->render('error.twig'),$status);
 });
  
 $app->get('/', function() use ($app) {

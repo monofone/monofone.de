@@ -122,14 +122,14 @@ p{
 dl{
   width: 520px;
 }
-dd{
+dt{
   float:left;
   background-color: black;
   font-weight: bold;
   padding: 2px 2px;
   font-family: monospace;
 }
-dt{
+dd{
   padding-left: 180px;
   padding-bottom: 20px;
 }

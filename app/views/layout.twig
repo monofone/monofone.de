@@ -1,8 +1,10 @@
+<!DOCTYPE HTML>
 <html>
   <head>
     <title>monofone</title>
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
     <link rel="shortcut icon" href="/favicon.ico" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <!--
     Deutsch:
     Vielen Dank für den Blick in den Quellcode, die Seite läuft auf einer 
@@ -10,7 +12,7 @@
     Als Templatesprache kommt Twig zum Einsatz, die Effekte wurden versucht alle
     mittels CSS 3 umzusetzen, deswegen ist ein aktueller Browser die 
     Vorraussetzung für ein schönes Erscheinungsbild.
-    ----------------------------------------------------------------------------
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     English
     Thank you for checking the source code, the site is build using 
     silex(silex-project.org). For templating Twig is used and all effects are
@@ -22,13 +24,13 @@
       <header>
         <h1>monofone</h1>
         <div id="stoerer"></div>
-        <menu>
+        <nav>
           <ul id="nav">
             <li id="vita"><a href="{{ path('page', {'name': 'vita' }) }}">vita</a></li>
             <li id="knowledge"><a href="{{ path('page', {'name': 'knowledge' }) }}">knowledge</a></li>
             <li id="spare"><a href="{{ path('page', {'name': 'spare-time' }) }}">spare time</a></li>
           </ul>
-        </menu>
+        </nav>
       </header> 
       <div class="clear"></div>
       <div id="container">
@@ -45,7 +47,7 @@
     <footer>
       <div id="footer">
         <div id="copy">
-          <p>&copy 2011 Sören Rohweder</p>
+          <p>&copy; 2011 Sören Rohweder</p>
         </div>
         <div id="contact">
           <a href="{{ path('contact') }}">contact</a>
