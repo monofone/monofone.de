@@ -9,13 +9,9 @@ $app = new Silex\Application();
 
 $app['debug'] = false;
 
-//$app->register(new MonologExtension(), array(
-//    'monolog.class_path'    => __DIR__.'/vendor/monolog/src',
-//    'monolog.logfile'       => __DIR__.'/development.log',    
-////  'monolog.name'          => 'cars',
-////  'monolog.level'         => Logger::INFO,
-//));
- 
+/*
+ * Register the extensions used
+ */ 
 $app->register(new TwigExtension(), array(
     'twig.path'       => __DIR__.'/views',
     'twig.class_path' => __DIR__.'/vendor/Twig/lib',
@@ -38,17 +34,21 @@ $app->register(new Silex\Extension\SymfonyBridgesExtension(), array(
 
 $app->register(new Silex\Extension\UrlGeneratorExtension());
  
+/**
+ * configure global behaviour for twig
+ */
 $app->before(function() use ($app) {
     $app['twig']->addGlobal('layout', $app['twig']->loadTemplate('layout.twig'));
     $request = $app['request'];
-    /*@var $request Symfony\Component\HttpFoundation\Request*/
-    $userAgent = $request->headers->get('user-agent');
+    /* @var $request Symfony\Component\HttpFoundation\Request */
     if(stristr($request->headers->get('user-agent'),'Android')){
       $app['twig']->addGlobal('isMobile',true);
-    }
-    
+    }    
 });
  
+/**
+ * set up error handling
+ */
 $app->error(function($error) use($app) {
     if(preg_match("/found|find/",$error->getMessage())){
       return new Response($app['twig']->render('404.twig'),'404');
@@ -57,6 +57,9 @@ $app->error(function($error) use($app) {
     }
 });
  
+/**
+ * the page configuration
+ */
 $app->get('/', function() use ($app) {
   $url = $app['url_generator']->generate('page', array('name'=>'vita'));
   return $app->redirect($url);
@@ -70,6 +73,9 @@ $app->get('/page/{name}', function($name) use ($app) {
   }
 })->bind('page');
 
+/**
+ * contact form
+ */
 $app->match('contact',function() use ($app){
     $form = $app['form.factory']
 	    ->createBuilder('form')

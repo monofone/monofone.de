@@ -17,3 +17,17 @@ footer{
   position: static;
   margin-left: 40px;  
 }
+#footer{
+  width: 60%;
+}
+#copy p{
+  width: 200px;
+}
+dt{
+  float: none;
+  margin-bottom: 2px;
+}
+
+dd{
+  padding-left: 0px;
+}
