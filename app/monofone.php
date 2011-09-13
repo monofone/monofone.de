@@ -51,12 +51,10 @@ $app->before(function() use ($app) {
  
 $app->error(function($error) use($app) {
     if(preg_match("/found|find/",$error->getMessage())){
-	$status = '404';
+      return new Response($app['twig']->render('404.twig'),'404');
     }else{
-	$status = '500';
+      return new Response($app['twig']->render('error.twig'),'500');
     }
-    
-    return new Response($app['twig']->render('error.twig'),$status);
 });
  
 $app->get('/', function() use ($app) {
@@ -65,7 +63,11 @@ $app->get('/', function() use ($app) {
 });
 
 $app->get('/page/{name}', function($name) use ($app) {
-  return $app['twig']->render($name.'.twig');
+  if(file_exists(__DIR__.'/views/'.$name.'.twig')){
+    return $app['twig']->render($name.'.twig');  
+  }else{
+    return new Response($app['twig']->render('404.twig'),'404');
+  }
 })->bind('page');
 
 $app->match('contact',function() use ($app){
