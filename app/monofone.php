@@ -40,6 +40,13 @@ $app->register(new Silex\Extension\UrlGeneratorExtension());
  
 $app->before(function() use ($app) {
     $app['twig']->addGlobal('layout', $app['twig']->loadTemplate('layout.twig'));
+    $request = $app['request'];
+    /*@var $request Symfony\Component\HttpFoundation\Request*/
+    $userAgent = $request->headers->get('user-agent');
+    if(stristr($request->headers->get('user-agent'),'Android')){
+      $app['twig']->addGlobal('isMobile',true);
+    }
+    
 });
  
 $app->error(function($error) use($app) {
